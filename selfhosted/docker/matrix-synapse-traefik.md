@@ -1,6 +1,11 @@
 # Matrix Synapse mit Traefik unter Docker installieren
 
-Ziel der Anleitung ist eine lauffähige Matrix Synapse Installation mit Traefik unter Docker.
+_Ziel dieser Anleitung ist eine lauffähige Matrix Synapse Installation mit Traefik unter Docker._
+
+## Voraussetzungen
+1. Numbered
+2. List
+
 Matrix Synapse läuft auf einem NAS mit einer dynamischen Adresse. Die Hauptdomain (example.de) ist einem anderen Server mit einer festen IP Adresse zugewiesen.
 Damit das NAS von außen erreichbar ist, wird periodisch die aktuelle dynamische IP-Adresse bei DuckDNS hinterlegt.
 
@@ -11,7 +16,7 @@ Der Server wäre nun über diese Adresse (dynmatrix.duckdns.org) erreichbar, jed
 
 Damit der Matrix Server im Internet überhaupt gefunden werden kann, wird ein DNS A Record benötigt.
 ```
-matrix.example.de   3600  IN  A  123.12.12.1
+matrix.example.de   3600  IN  A  12.123.123.123
 ```
 Damit auch andere Matrix Server diesen Matrix Server finden, benötigen wir einen DNS SRV Record.
 ```
