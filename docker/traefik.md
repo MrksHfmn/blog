@@ -25,7 +25,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
       - "traefik.http.routers.traefik.rule=Host(`traefik.example.de`)" # <-- Edit
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=user:password123" # <-- Edit
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=user:password123" # <-- Edit: echo $(htpasswd -nbB <USER> "<PASS>") | sed -e s/\\$/\\$\\$/g
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
       - "traefik.http.routers.traefik-secure.entrypoints=https"
@@ -114,7 +114,7 @@ touch acme.json && chmod 600 acme.json
 ## Traefik hochfahren
 Nachdem alle Einstellungen ob angepasst sind, kann der Docker Container hochgefahren werden:
 ```
-docker-compose pull && docker-compose up -d
+docker-compose pull && docker-compose up
 ```
 Beim ersten Start wird versucht, alle nötigen Let's Encrypt Zertifikate zu holen. Das kann u.U. ein bisschen dauern.
 Die Erneuerung der Zertikate funktioniert nun automatisch und wird durch Traefik getriggert.
