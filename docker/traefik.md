@@ -1,6 +1,6 @@
 # Traefik 
 ## docker-compose.yaml
-```
+```yaml
 version: '3.8'
 
 services:
@@ -40,7 +40,7 @@ networks:
     external: true
 ```
 ## traefik.yaml
-```
+```yaml
 api:
   dashboard: true
 
@@ -69,7 +69,7 @@ certificatesResolvers:
         entrypoint: http
 ```
 ## dynamic.yml
-```
+```yaml
 tls:
   options:
     default:
@@ -108,12 +108,12 @@ http:
 ```
 ## acme.json
 Die acme.json Datei sollte inital angelegt werden mit:
-```
+```sh
 touch acme.json && chmod 600 acme.json
 ```
 ## Traefik hochfahren
 Nachdem alle Einstellungen ob angepasst sind, kann der Docker Container hochgefahren werden:
-```
+```sh
 docker-compose pull && docker-compose up
 ```
 Beim ersten Start wird versucht, alle nötigen Let's Encrypt Zertifikate zu holen. Das kann u.U. ein bisschen dauern.

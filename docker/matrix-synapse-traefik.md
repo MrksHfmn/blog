@@ -6,8 +6,6 @@ Damit das NAS von außen erreichbar ist, wird periodisch die aktuelle dynamische
 
 Der Server wäre nun über diese Adresse (dynmatrix.duckdns.org) erreichbar, jedoch möchte ich meine Hauptdomain (example.de) wiederverwenden. Über einen CNAME DNS Eintrag wird dynmatrix.duckdns.org auf matrix.example.de umgeschlüsselt.
 
-
-
 ## Matrix Synapse
 ### DNS Einträge vorbereiten
 
@@ -25,7 +23,7 @@ _matrix._tcp.example.de    600   IN     SRV  0          10       443   matrix.ex
 Normalerweise findet die Federation-Suche über Port 8448 statt, da ich aber keinen Port freigeben möchte, lässt sich das über einen Reverse-Proxy inkl. well-known Eintrag lösen.
 
 #### Beispiel (nginx)
-```
+```nginx
 server {
         listen 80 default_server;
         listen [IPv6]:80 default_server;
